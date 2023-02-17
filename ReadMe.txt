@@ -1,13 +1,10 @@
-# CSSR
+			"Read Me" for CSSR
+		Kristina Lisa Klinkner and Cosma Rohilla Shalizi
+		<rot13 xxyvaxare@tznvy.pbz>, <rot13 pfunyvmv@fgng.pzh.rqh>
+		Last revised 18 April 2008
 
-## An Algorithm for Building Markov Models from Time Series
 
-This is a mirror of CSSR, [official website located here](http://www.bactra.org/CSSR/).
-In collaboration with Cosma and Kristina, I have been working on improvements of CSSR.
-Unfortunately, these improvements are incomplete and unmaintained.
-Please email me (rot13: fnz@fgvgrf.vb), cc'ing Kristina and Cosma if you would like access to these revisions.
-
-### 1. General
+1. General
 
 CSSR tries to infer the minimal Markovian model capable of generating a
 time-series, or set of time-series from the same source.  The program
@@ -41,7 +38,7 @@ the estimated causal states.
 
 
 
-### 2. Obtaining and Installing the Program
+2. Obtaining and Installing the Program
 
 The code for CSSR can be obtained from http://bactra.org/CSSR/.  If you'd like
 to set up a new archive for it, we'd appreciate hearing about it.
@@ -69,7 +66,7 @@ deprecated headers.  These can be safely ignored.
 
 
 
-### 3. Usage
+3. Usage
 
 CSSR is a command-line program.
 
@@ -147,7 +144,7 @@ for use with the program dot, available from http://www.graphviz.org/.
 
 
 
-### 4. Some Suggestions About Parameters
+4. Some Suggestions About Parameters
 
 It is always good to use as much data as you can.  While it is generally good
 practice to hold back some data for testing or cross-validation, we recommend
@@ -177,7 +174,7 @@ architecture is found, it should be recorded at the lowest possible L.
 
 
 
-### 5. Known Issues
+5. Known Issues
 
 There are a few known issues with CSSR's behavior.  These arise from certain
 unavoidable approximations in the determinization procedure.  (For details, see
@@ -226,7 +223,7 @@ is to provide more data, and a longer history.
 
 
 
-### 6. Bug Reports, Fixes, Modifications
+6. Bug Reports, Fixes, Modifications
 
 We welcome bug reports or reports of strange behavior.  These reports are
 welcomed with more enthusiasm when accompanied by successful modifications to
@@ -243,55 +240,59 @@ Please check http://bactra.org/CSSR/ for up-to-date contact information.
 
 
 
-### 7. Some Details on the Code
+7. Some Details on the Code
 
 There are twelve classes in the program. They are each comprised of a .cpp file
-and a .h file, except for `ArrayElem` (contained in `G_Array`) and `StringElem`
-(contained in `State`), as well as a source file `Main`, and header files
-`Common.h` and `Main.h`.
+and a .h file, except for ArrayElem (contained in G_Array) and StringElem
+(contained in State), as well as a source file Main, and header files Common.h
+and Main.h.
 
-Class    | Description
-------------|------------------------------------------------------------------
-`AllStates` | Contains and manipulates growable array of states
-`ArrayElem` | Each element in the growable array
-`G_Array`  | A generic growable array
-`Hash`   | Hash table which points from histories to their parent states
-`Hash2`   | Hash table which points from indices to symbol/alpha values
-`Machine`  | Manipulates the determinized state machine and runs metrics
-`ParseTree` | Reads in data file and stores all strings present in file up to length L (the maximum length input at the command line)
-`States`  | A state, contains all data for a single state
-`StringElem`| The element containing the history for a single state
-`Test`   | Performs statistical significance tests
-`TransTable`| Stores initially estimated transitions from all histories of length L in any given state. This class is used by AllStates to check for transient states before determinization
+AllStates	Contains and manipulates growable array of states
+ArrayElem	Each element in the growable array
+G_Array		A generic growable array
+Hash		Hash table which points from histories to their parent states
+Hash2		Hash table which points from indices to symbol/alpha values
+Machine		Manipulates the determinized state machine and runs metrics
+ParseTree	Reads in data file and stores all strings present in file up to
+		length L (the maximum length input at the command line)
+States		A state, contains all data for a single state
+StringElem	The element containing the history for a single state
+Test		Performs statistical significance tests
+TransTable	Stores initially estimated transitions from all histories of
+		length L in any given state. This class is used by AllStates to
+		check for transient states before determinization.
 
-For brief descriptions of the classes, see the top of their source files. Note
+For brief descriptions of the classes, see the top of their source files.  Note
 that the terms "string" and "history" are used interchangeably in the program.
 The terms both correspond to the concept of a "history" (as described in
 BC), but the program implements these as strings of symbols.
 
 Also, after initial state splitting, all strings/histories of less than maximum
-length minus one are deleted. This has no effect on the outcome of the
+length minus one are deleted.  This has no effect on the outcome of the
 algorithm and saves time and space.
 
 Lastly, the removal of transient states prior to determinization implemented in
-the AllStates::CheckConnComponents procedure is not strictly necessary. With a
+the AllStates::CheckConnComponents procedure is not strictly necessary.  With a
 different implementation, the deletion of these states could automatically
 occur during the determinization process itself (see the pseudocode in BC
-for details), and the outcome of the algorithm would be the same. As it is
+for details), and the outcome of the algorithm would be the same.  As it is
 implemented here the code is slightly redundant.
 
 
-#### 7.1 Revision History
+7.1 Revision History
 
-| Version | Date | Description |
-|:----:|:----:|:----:|
-| 0.1.1 | 18 April 2008 | Modified output of _info file to include command-line settings |
-| 0.1 | 11 Sept. 2005  | Minor bug-fixes to multi-line mode |
-| 0.1 | 7 August 2005  | Corrects minor numerical bugs.  These only affected the calculations of relative entropy, relative entropy rate and total variation distance; their effect was small, about O(k/N). |
-| 0.0 | 7 August 2003  | First public release. |
+0.1.1 18 April 2008  Modified output of _info file to include command-line
+                     settings
+0.1   11 Sept. 2005  Minor bug-fixes to multi-line mode
+0.1   7 August 2005  Corrects minor numerical bugs.  These only affected the
+                     calculations of relative entropy, relative entropy rate
+		     and total variation distance; their effect was small,
+		     about O(k/N).
+0.0   7 August 2003  First public release.
 
 
-### 8. Credits and Acknowledgments
+
+8. Credits and Acknowledgments
 
 CSSR was written by KLK, with some help in debugging and testing from CRS; this
 documentation was jointly written.  Parts of the CSSR code were written at the
