@@ -1,5 +1,10 @@
 # CSSR
 
+**Note**:  
+Repo copied from https://github.com/stites/CSSR
+Code slightly adapted to avoid compilation errors (namespace std functions, char* casts, ...), but program logic not changed.
+FvW, 17 Feb 2023
+
 ## An Algorithm for Building Markov Models from Time Series
 
 This is a mirror of CSSR, [official website located here](http://www.bactra.org/CSSR/).
