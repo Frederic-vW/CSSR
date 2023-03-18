@@ -20,7 +20,7 @@ using std::endl; // added FvW
 using std::cin; // added FvW
 using std::cout; // added FvW
 
-char *program = "CSSR";  //program name
+const char *program = "CSSR";  //program name, const added for c++ compilation (FvW, 2023)
 
 void PrintError()
 {
