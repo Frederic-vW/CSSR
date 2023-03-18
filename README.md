@@ -2,7 +2,10 @@
 
 **Note**:  
 Repo copied from https://github.com/stites/CSSR  
-Code slightly adapted to avoid compilation errors (namespace std functions, char* casts, ...), but program logic not changed.  
+Code slightly adapted to avoid compilation errors, but program logic not changed.  
+Changes:
+- add: `namespace std;` functions to enable cout, cin, cerr, ...
+- `char *program = "CSSR";` --> `const char *program = "CSSR";` (due to: ISO C++ forbids converting a string constant to 'char*')
 FvW, 17 Feb 2023
 
 ## An Algorithm for Building Markov Models from Time Series
